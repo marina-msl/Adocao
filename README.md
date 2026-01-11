@@ -28,11 +28,19 @@ Este projeto tem três objetivos:
 
 Se você também está começando com Spring AI, este repositório pode te economizar horas de pesquisa!
 
+## 🔄 Diferenças do Tutorial Original
+
+Algumas adaptações foram feitas em relação ao tutorial original:
+
+1. **Modelo de IA**: Não usei o Claude (que requer pagamento de $5 USD). Em vez disso, utilizei o **Ollama** com o modelo **llama3.2:1b** (o menor modelo disponível). 
+
+2. **Configuração do Docker**: A configuração do banco de dados foi feita diretamente via Docker exec, conforme descrito na seção de instalação abaixo.
+
 ## 📊 Progresso do Tutorial
 
 Status atual do aprendizado seguindo o tutorial:
 
-- ✅ **Chat Memory** (você travou aqui)
+- ✅ **Chat Memory** 
 - ⬜ System Prompts
 - ⬜ Observability
 - ⬜ RAG/Vector Store
@@ -45,8 +53,8 @@ Status atual do aprendizado seguindo o tutorial:
 
 Este é um sistema de adoção de cães que utiliza **Spring AI** para criar um assistente inteligente que ajuda pessoas a encontrar o cão perfeito para adoção. O sistema utiliza:
 
-- 🤖 **Spring AI** com modelo Claude (via Ollama)
-- 🗄️ **PostgreSQL** com extensões PgVector e PostgresML
+- 🤖 **Spring AI** com modelo llama3.2:1b (via Ollama)
+- 🗄️ **PostgreSQL** com extensões PgVector
 - 💾 **Spring Data JDBC** para persistência
 - 🧠 **Chat Memory** para manter contexto das conversas
 - 🔍 **Vector Store** para busca semântica de cães disponíveis
@@ -56,8 +64,8 @@ Este é um sistema de adoção de cães que utiliza **Spring AI** para criar um 
 - **Java 21**
 - **Spring Boot 3.5.10-SNAPSHOT**
 - **Spring AI 1.1.2**
-- **PostgreSQL** (com PgVector e PostgresML)
-- **Ollama** (modelo llama3.2:1b)
+- **PostgreSQL** (com PgVector)
+- **Ollama** (modelo llama3.2:1b) - usando um modelo pequeno
 - **Maven**
 - **GraalVM Native Support**
 
@@ -68,25 +76,42 @@ Este é um sistema de adoção de cães que utiliza **Spring AI** para criar um 
 - Docker (para PostgreSQL com extensões)
 - Ollama instalado e rodando
 
+> 📖 **Precisa de ajuda com o Ollama?** Consulte o [Guia de Comandos do Ollama](OLLAMA.md)
+
 ## 🛠️ Como Executar
 
 ### 1. Configurar o Banco de Dados
 
-Execute o script para iniciar o PostgreSQL com as extensões necessárias:
+Execute o Docker para iniciar o PostgreSQL. Depois, configure o banco executando:
 
 ```bash
-./db/run.sh
+docker exec -it postgres-adoptions psql -U postgres -d adoptions
 ```
 
-Depois, inicialize o usuário da aplicação:
+Você vai entrar no console do PostgreSQL e ver algo como: `adoptions=#`
 
-```bash
-./db/init.sh
+Cole esses comandos:
+
+```sql
+CREATE USER myappuser WITH PASSWORD 'mypassword';
+GRANT ALL PRIVILEGES ON DATABASE adoptions TO myappuser;
+GRANT ALL ON SCHEMA public TO myappuser;
+CREATE EXTENSION IF NOT EXISTS vector;
+```
+
+Depois de executar, você deve ver mensagens como:
+```
+CREATE ROLE
+GRANT
+GRANT
+CREATE EXTENSION
 ```
 
 ### 2. Configurar a Aplicação
 
 As configurações estão no arquivo `src/main/resources/application.properties`. Certifique-se de que o Ollama está rodando e acessível.
+
+> 💡 **Dica:** Precisa configurar ou testar o Ollama? Veja o [Guia de Comandos do Ollama](OLLAMA.md)
 
 ### 3. Executar a Aplicação
 
@@ -106,7 +131,7 @@ GET /{user}/assistant?question={sua pergunta}
 
 Exemplo:
 ```
-GET /joao/assistant?question=Quais cães estão disponíveis para adoção?
+GET /marina/assistant?question=Quais cães estão disponíveis para adoção?
 ```
 
 ## 🗂️ Estrutura do Projeto
@@ -186,4 +211,8 @@ Se este repositório te ajudou de alguma forma:
 - [Spring AI Documentation](https://docs.spring.io/spring-ai/reference/)
 - [Tutorial Original](https://spring.io/blog/2025/05/20/your-first-spring-ai-1) por Josh Long, Mark Pollack e Christian Tsolov
 - [Anthropic Claude](https://www.anthropic.com/)
+
+## 📚 Documentação Adicional
+
+- [🦙 Guia de Comandos do Ollama](OLLAMA.md) - Comandos essenciais para trabalhar com o Ollama
 
