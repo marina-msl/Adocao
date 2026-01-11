@@ -1,5 +1,11 @@
 # 🐕 Sistema de Adoção de Cães com Spring AI
 
+![Java](https://img.shields.io/badge/Java-21-orange)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5-green)
+![Spring AI](https://img.shields.io/badge/Spring%20AI-1.1.2-blue)
+![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
+![Licença](https://img.shields.io/badge/Licença-Educacional-lightgrey)
+
 Este projeto é uma implementação em português do tutorial **"Your First Spring AI 1.0 Application"** do blog oficial do Spring.
 
 ## 📚 Sobre este Projeto
@@ -9,6 +15,18 @@ Este repositório foi criado como parte dos meus estudos sobre **Spring AI 1.0**
 🔗 **[Your First Spring AI 1.0 Application](https://spring.io/blog/2025/05/20/your-first-spring-ai-1)**
 
 Durante o aprendizado, estou traduzindo o conteúdo e adaptando para português, tornando o material mais acessível para desenvolvedores brasileiros.
+
+## 💡 Por que este projeto?
+
+Spring AI 1.0 acabou de ser lançado (Maio 2025) e há **pouquíssimo conteúdo em português** sobre o tema.
+
+Este projeto tem três objetivos:
+
+1. 📖 **Documentar minha jornada** aprendendo Spring AI
+2. 🇧🇷 **Tornar o conteúdo acessível** para desenvolvedores brasileiros
+3. 🚀 **Criar um portfólio real** aplicando conceitos de IA em Java
+
+Se você também está começando com Spring AI, este repositório pode te economizar horas de pesquisa!
 
 ## 📊 Progresso do Tutorial
 
@@ -137,21 +155,36 @@ Este projeto me permitiu aprender sobre:
 - Uso de embeddings para melhorar respostas da IA
 - Configuração de PostgreSQL com extensões avançadas
 
-## 📖 Referências
+## 🤝 Como Contribuir
 
-- [Spring AI Documentation](https://docs.spring.io/spring-ai/reference/)
-- [Your First Spring AI 1.0 Application](https://spring.io/blog/2025/05/20/your-first-spring-ai-1)
-- [Spring Boot Documentation](https://docs.spring.io/spring-boot/reference/)
+Este é um projeto educacional aberto! Contribuições são bem-vindas:
 
-## 📄 Licença
+1. 🐛 Encontrou um bug? Abra uma issue
+2. 💡 Tem uma ideia? Proponha via Pull Request
+3. 📖 Melhorou a documentação? Contribua!
 
-Este projeto é para fins educacionais, baseado no tutorial oficial do Spring.
+## 📬 Contato
 
-## 👨‍💻 Autor
+Desenvolvido por [Seu Nome]
 
-Criado como parte dos estudos sobre Spring AI, traduzindo e adaptando o material oficial para português.
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Conectar-blue)](seu-linkedin)
+[![Twitter](https://img.shields.io/badge/Twitter-Seguir-1DA1F2)](seu-twitter)
 
 ---
 
-⭐ Se este projeto te ajudou de alguma forma, considere dar uma estrela!
+## ⭐ Gostou do projeto?
+
+Se este repositório te ajudou de alguma forma:
+- ⭐ Dê uma estrela no GitHub
+- 🔄 Compartilhe com outros devs
+- 💬 Deixe um comentário no meu LinkedIn
+
+**Juntos, tornamos Spring AI acessível para todos os devs brasileiros!** 🇧🇷🚀
+
+---
+
+📖 **Referências e Créditos**
+- [Spring AI Documentation](https://docs.spring.io/spring-ai/reference/)
+- [Tutorial Original](https://spring.io/blog/2025/05/20/your-first-spring-ai-1) por Josh Long, Mark Pollack e Christian Tsolov
+- [Anthropic Claude](https://www.anthropic.com/)
 
