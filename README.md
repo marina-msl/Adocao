@@ -165,10 +165,9 @@ Este é um projeto educacional aberto! Contribuições são bem-vindas:
 
 ## 📬 Contato
 
-Desenvolvido por [Seu Nome]
+Desenvolvido por **Marina Leide**
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Conectar-blue)](seu-linkedin)
-[![Twitter](https://img.shields.io/badge/Twitter-Seguir-1DA1F2)](seu-twitter)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Conectar-blue)](https://www.linkedin.com/in/marinaleide/)
 
 ---
 
