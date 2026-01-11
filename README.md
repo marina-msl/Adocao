@@ -10,6 +10,19 @@ Este repositório foi criado como parte dos meus estudos sobre **Spring AI 1.0**
 
 Durante o aprendizado, estou traduzindo o conteúdo e adaptando para português, tornando o material mais acessível para desenvolvedores brasileiros.
 
+## 📊 Progresso do Tutorial
+
+Status atual do aprendizado seguindo o tutorial:
+
+- ✅ **Chat Memory** (você travou aqui)
+- ⬜ System Prompts
+- ⬜ Observability
+- ⬜ RAG/Vector Store
+- ⬜ Structured Output
+- ⬜ Tool Calling
+- ⬜ MCP
+- ⬜ GraalVM Native
+
 ## 🎯 O que este projeto faz?
 
 Este é um sistema de adoção de cães que utiliza **Spring AI** para criar um assistente inteligente que ajuda pessoas a encontrar o cão perfeito para adoção. O sistema utiliza:
