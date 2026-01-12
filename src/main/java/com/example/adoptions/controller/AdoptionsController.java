@@ -16,8 +16,7 @@ public class AdoptionsController {
 
     AdoptionsController(PromptChatMemoryAdvisor advisor, ChatClient.Builder ai) {
         this.ai = ai
-                    .defaultAdvisors(advisor)
-                    .build();
+                    .defaultAdvisors(advisor)             .build();
     }
 
     @GetMapping("/{user}/assistant")

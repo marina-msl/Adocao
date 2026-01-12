@@ -36,6 +36,8 @@ Algumas adaptações foram feitas em relação ao tutorial original:
 
 2. **Configuração do Docker**: A configuração do banco de dados foi feita diretamente via Docker exec, conforme descrito na seção de instalação abaixo.
 
+3. **Arquitetura em Camadas**: Diferente do tutorial original onde tudo fica na classe principal, estou seguindo uma arquitetura em camadas com separação de responsabilidades. As configurações do Spring AI (como `PromptChatMemoryAdvisor`) foram organizadas na pasta `config/` ao invés de ficarem todas na classe `AdoptionsApplication`, permitindo uma melhor organização e manutenibilidade do código.
+
 ## 📊 Progresso do Tutorial
 
 Status atual do aprendizado seguindo o tutorial:
@@ -142,6 +144,8 @@ adoptions/
 │   ├── main/
 │   │   ├── java/com/example/adoptions/
 │   │   │   ├── AdoptionsApplication.java
+│   │   │   ├── config/
+│   │   │   │   └── AIConfig.java
 │   │   │   ├── controller/
 │   │   │   │   └── AdoptionsController.java
 │   │   │   ├── model/
