@@ -44,7 +44,7 @@ Status atual do aprendizado seguindo o tutorial:
 
 - ✅ **Chat Memory** 
 - ✅ **System Prompts**
-- ⬜ Observability
+- ✅ **Observability**
 - ⬜ RAG/Vector Store
 - ⬜ Structured Output
 - ⬜ Tool Calling
@@ -219,4 +219,5 @@ Se este repositório te ajudou de alguma forma:
 ## 📚 Documentação Adicional
 
 - [🦙 Guia de Comandos do Ollama](OLLAMA.md) - Comandos essenciais para trabalhar com o Ollama
+- [📊 Observabilidade e Métricas](OBSERVABILITY.md) - Guia sobre métricas e monitoramento com Spring Boot Actuator
 
