@@ -43,7 +43,7 @@ Algumas adaptações foram feitas em relação ao tutorial original:
 Status atual do aprendizado seguindo o tutorial:
 
 - ✅ **Chat Memory** 
-- ⬜ System Prompts
+- ✅ **System Prompts**
 - ⬜ Observability
 - ⬜ RAG/Vector Store
 - ⬜ Structured Output
