@@ -4,7 +4,7 @@ Guia sobre observabilidade e métricas no projeto usando Spring Boot Actuator.
 
 ## ⚙️ Configuração
 
-Na parte de observabilidade foram inseridas as seguintes configuracoes no `application.properties`:
+Na parte de observabilidade foram inseridas as seguintes configurações no `application.properties`:
 
 ```properties
 # Habilitando todos os endpoints do Actuator (somente para desenvolvimento e testes)
@@ -12,31 +12,31 @@ management.endpoints.web.exposure.include=*
 management.endpoint.health.show-details=always
 ```
 
-> ⚠️ **Importante:** Habilitar todos os endpoints (`*`) é recomendado apenas para desenvolvimento e testes. Em producao, especifique apenas os endpoints necessarios.
+> ⚠️ **Importante:** Habilitar todos os endpoints (`*`) é recomendado apenas para desenvolvimento e testes. Em produção, especifique apenas os endpoints necessários.
 
-## 📈 Acessando as Metricas
+## 📈 Acessando as Métricas
 
-Para ver as metricas geradas pela aplicacao, acesse:
+Para ver as métricas geradas pela aplicação, acesse:
 
 ```
 http://localhost:8080/actuator/metrics
 ```
 
-Esta URL retorna uma lista de todas as metricas disponiveis no sistema.
+Esta URL retorna uma lista de todas as métricas disponíveis no sistema.
 
-## 🔑 Metrica de Tokens
+## 🔑 Métrica de Tokens
 
-Uma metrica importante a ser observada e a quantidade de tokens usados pela aplicacao. Essa metrica pode ser encontrada em:
+Uma métrica importante a ser observada é a quantidade de tokens usados pela aplicação. Essa métrica pode ser encontrada em:
 
 ```
 http://localhost:8080/actuator/metrics/gen_ai.client.token.usage
 ```
 
-Esta metrica mede o numero de tokens de entrada (input) e saida (output) utilizados nas interacoes com o modelo de IA.
+Esta métrica mede o número de tokens de entrada (input) e saída (output) utilizados nas interações com o modelo de IA.
 
 ### Exemplo de Resposta
 
-Apos algumas interacoes, a metrica retorna informacoes detalhadas:
+Após algumas interações, a métrica retorna informações detalhadas:
 
 ```json
 {
@@ -87,7 +87,7 @@ Apos algumas interacoes, a metrica retorna informacoes detalhadas:
 
 ### Observando o Crescimento
 
-Apos mais interacoes, podemos observar que o valor aumenta. Por exemplo:
+Após mais interações, podemos observar que o valor aumenta. Por exemplo:
 
 **Valor inicial:**
 ```json
@@ -101,7 +101,7 @@ Apos mais interacoes, podemos observar que o valor aumenta. Por exemplo:
 }
 ```
 
-**Valor apos mais interacoes:**
+**Valor após mais interações:**
 ```json
 {
   "measurements": [
@@ -113,29 +113,29 @@ Apos mais interacoes, podemos observar que o valor aumenta. Por exemplo:
 }
 ```
 
-Isso demonstra que a aplicacao esta registrando corretamente o uso de tokens a cada interacao com o modelo de IA.
+Isso demonstra que a aplicação está registrando corretamente o uso de tokens a cada interação com o modelo de IA.
 
-## 📋 Outras Metricas Disponiveis
+## 📋 Outras Métricas Disponíveis
 
-O Spring Boot Actuator fornece diversas outras metricas, incluindo:
+O Spring Boot Actuator fornece diversas outras métricas, incluindo:
 
-- `jvm.memory.used` - Uso de memoria da JVM
-- `http.server.requests` - Requisicoes HTTP
-- `process.uptime` - Tempo de execucao da aplicacao
+- `jvm.memory.used` - Uso de memória da JVM
+- `http.server.requests` - Requisições HTTP
+- `process.uptime` - Tempo de execução da aplicação
 - E muitas outras...
 
-Explore todas as metricas disponiveis em `http://localhost:8080/actuator/metrics`.
+Explore todas as métricas disponíveis em `http://localhost:8080/actuator/metrics`.
 
 ## 🔗 Links Relacionados
 
 - [← Voltar ao README principal](README.md)
 
-## 📚 Documentacao Oficial
+## 📚 Documentação Oficial
 
 - [Spring Boot Actuator Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html)
 - [Spring AI Observability](https://docs.spring.io/spring-ai/reference/api/observability.html)
 
 ---
 
-*Ultima atualizacao: Janeiro 2025*
+*Última atualização: Janeiro 2025*
 
