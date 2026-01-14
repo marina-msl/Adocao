@@ -34,9 +34,7 @@ Algumas adaptações foram feitas em relação ao tutorial original:
 
 1. **Modelo de IA**: Não usei o Claude (que requer pagamento de $5 USD). Em vez disso, utilizei o **Ollama** com o modelo **llama3.2:1b** (o menor modelo disponível). 
 
-2. **Configuração do Docker**: A configuração do banco de dados foi feita diretamente via Docker exec, conforme descrito na seção de instalação abaixo.
-
-3. **Arquitetura em Camadas**: Diferente do tutorial original onde tudo fica na classe principal, estou seguindo uma arquitetura em camadas com separação de responsabilidades. As configurações do Spring AI (como `PromptChatMemoryAdvisor`) foram organizadas na pasta `config/` ao invés de ficarem todas na classe `AdoptionsApplication`, permitindo uma melhor organização e manutenibilidade do código.
+2. **Arquitetura em Camadas**: Diferente do tutorial original onde tudo fica na classe principal, estou seguindo uma arquitetura em camadas com separação de responsabilidades. As configurações do Spring AI (como `PromptChatMemoryAdvisor`) foram organizadas na pasta `config/` ao invés de ficarem todas na classe `AdoptionsApplication`, permitindo uma melhor organização e manutenibilidade do código.
 
 ## 📊 Progresso do Tutorial
 
@@ -82,46 +80,25 @@ Este é um sistema de adoção de cães que utiliza **Spring AI** para criar um 
 
 ## 🛠️ Como Executar
 
-### 1. Configurar o Banco de Dados
+### 1. Iniciar o Banco de Dados
 
-Execute o Docker para iniciar o PostgreSQL. Depois, configure o banco executando:
+Execute o Docker Compose para iniciar o PostgreSQL:
 
 ```bash
-docker exec -it postgres-adoptions psql -U postgres -d adoptions
+docker-compose up -d
 ```
 
-Você vai entrar no console do PostgreSQL e ver algo como: `adoptions=#`
+### 2. Executar a Aplicação
 
-Cole esses comandos:
-
-```sql
-CREATE USER myappuser WITH PASSWORD 'mypassword';
-GRANT ALL PRIVILEGES ON DATABASE adoptions TO myappuser;
-GRANT ALL ON SCHEMA public TO myappuser;
-CREATE EXTENSION IF NOT EXISTS vector;
-```
-
-Depois de executar, você deve ver mensagens como:
-```
-CREATE ROLE
-GRANT
-GRANT
-CREATE EXTENSION
-```
-
-### 2. Configurar a Aplicação
-
-As configurações estão no arquivo `src/main/resources/application.properties`. Certifique-se de que o Ollama está rodando e acessível.
-
-> 💡 **Dica:** Precisa configurar ou testar o Ollama? Veja o [Guia de Comandos do Ollama](OLLAMA.md)
-
-### 3. Executar a Aplicação
+Certifique-se de que o Ollama está rodando e acessível, depois execute:
 
 ```bash
 ./mvnw spring-boot:run
 ```
 
 A aplicação estará disponível em `http://localhost:8080`
+
+> 💡 **Dica:** Precisa configurar ou testar o Ollama? Veja o [Guia de Comandos do Ollama](OLLAMA.md)
 
 ## 📡 Endpoints
 
