@@ -1,36 +1,20 @@
-version: '3.8'
-
 services:
   postgres:
     image: pgvector/pgvector:pg16
     container_name: adoptions-postgres
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: myappuser
+      POSTGRES_PASSWORD: mypassword
       POSTGRES_DB: adoptions
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: ["CMD-SHELL", "pg_isready -U myappuser -d adoptions"]
       interval: 5s
       timeout: 5s
-      retries: 5
-
-  app:
-    build: .
-    container_name: adoptions-app
-    depends_on:
-      postgres:
-        condition: service_healthy
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/adoptions
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
-      SPRING_AI_OPENAI_API_KEY: ${OPENAI_API_KEY}
-    ports:
-      - "8080:8080"
+      retries: 5  
 
 volumes:
   postgres-data:
