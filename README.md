@@ -158,8 +158,6 @@ Este projeto me permitiu aprender sobre:
 - Integração com modelos de IA usando Spring AI
 - Configuração de vector stores para busca semântica
 - Implementação de chat memory para manter contexto
-- Uso de embeddings para melhorar respostas da IA
-- Configuração de PostgreSQL com extensões avançadas
 
 ## 🤝 Como Contribuir
 
