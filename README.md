@@ -43,7 +43,7 @@ Status atual do aprendizado seguindo o tutorial:
 - ✅ **Chat Memory** 
 - ✅ **System Prompts**
 - ✅ **Observability**
-- ⬜ RAG/Vector Store
+- ✅ **RAG/Vector Store**
 - ⬜ Structured Output
 - ⬜ Tool Calling
 - ⬜ MCP

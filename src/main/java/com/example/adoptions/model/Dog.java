@@ -2,12 +2,15 @@ package com.example.adoptions.model;
 
 import org.springframework.data.annotation.Id;
 
-public record Dog(
+import lombok.Data;
+
+@Data
+public class Dog {
+
     @Id
-    int id,
-    String name,
-    String owner,
-    String description
-) {
+    private int id;
+    private String name;
+    private String breed;
+    private String description;
     
 }

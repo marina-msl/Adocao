@@ -1,3 +1,4 @@
+CREATE EXTENSION IF NOT EXISTS vector;
 drop table if exists dog;
 create table if not exists dog
 (
