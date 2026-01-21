@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.adoptions.model.DogAdoptionSuggestion;
 import com.example.adoptions.repository.DogRepository;
 
 @Controller
@@ -59,12 +60,14 @@ public class AdoptionsController {
     }
 
     @GetMapping("/{user}/assistant")
-    String inquire(@PathVariable String user, @RequestParam String question) {
-            return ai
+    DogAdoptionSuggestion inquire(@PathVariable String user, @RequestParam String question) {
+        
+            return  ai
                     .prompt()
                     .user(question)
                     .advisors(a -> a.param(ChatMemory.CONVERSATION_ID, user))
                     .call()
-                    .content();
+                    .entity(DogAdoptionSuggestion.class);
     }
+
 }
