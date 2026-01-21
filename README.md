@@ -44,7 +44,7 @@ Status atual do aprendizado seguindo o tutorial:
 - ✅ **System Prompts**
 - ✅ **Observability**
 - ✅ **RAG/Vector Store**
-- ⬜ Structured Output
+- ✅ **Structured Output**
 - ⬜ Tool Calling
 - ⬜ MCP
 - ⬜ GraalVM Native
@@ -195,4 +195,5 @@ Se este repositório te ajudou de alguma forma:
 
 - [🦙 Guia de Comandos do Ollama](OLLAMA.md) - Comandos essenciais para trabalhar com o Ollama
 - [📊 Observabilidade e Métricas](OBSERVABILITY.md) - Guia sobre métricas e monitoramento com Spring Boot Actuator
+- [📦 Structured Output - String vs Objetos Tipados](STRUCTURED_OUTPUT.md) - Guia completo sobre quando usar `.content()` vs `.entity()` no Spring AI
 
