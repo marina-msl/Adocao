@@ -44,7 +44,7 @@ Status atual do aprendizado seguindo o tutorial:
 - ✅ **System Prompts**
 - ✅ **Observability**
 - ✅ **RAG/Vector Store**
-- ✅ **Structured Output**
+- ✅ **Structured Output** - [Structured Output - String vs Objetos Tipados](STRUCTURED_OUTPUT.md)
 - ⬜ Tool Calling
 - ⬜ MCP
 - ⬜ GraalVM Native
