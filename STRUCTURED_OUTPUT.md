@@ -12,7 +12,7 @@ Ao trabalhar com Spring AI, você tem duas formas principais de receber resposta
 
 ![Código do endpoint retornando String](docs/imagens/structured-output-string-code.png)
 
-Quando fiz uma requisição como `GET /marina/assistant?message=Oi`, a resposta foi:
+Quando fiz uma requisição como `GET /marina/assistant?question=Liste quais são os cacorros pastores alemaes`, a resposta foi:
 
 ![Resposta da API em formato texto](docs/imagens/structured-output-string-response.png)
 
@@ -46,7 +46,7 @@ Esse método retorna um objeto tipado, `DogAdoptionSuggestion` e não mais a Str
 
 ![Resposta da API em formato JSON](docs/imagens/structured-output-json-response.png)
 
-Assim, fiz o teste e enviei novamente um "Oi" e essa foi a resposta: Note que a resposta retornou um cachorro (Toby, ID 69) mesmo para uma simples saudação. Isso acontece porque o sistema tem RAG configurado e um prompt que instrui a IA a sugerir cachorros para adoção. Combinado com o Structured Output que obriga a retornar um `DogAdoptionSuggestion`, a IA tentou "encaixar" a saudação nesse formato, buscando um cachorro no banco de dados. Este comportamento evidencia o problema: `.entity()` força uma estrutura rígida mesmo quando inadequado, enquanto um chatbot precisa de respostas flexíveis e contextuais.
+Assim, fiz o teste e enviei a mesma requisição e essa foi a resposta: Note que a resposta retornou um cachorro (Cooper, ID 67) mesmo para uma simples saudação. Isso acontece porque o sistema tem RAG configurado e um prompt que instrui a IA a sugerir cachorros para adoção. Combinado com o Structured Output que obriga a retornar um `DogAdoptionSuggestion`, a IA tentou "encaixar" a saudação nesse formato, buscando um cachorro no banco de dados. Este comportamento evidencia o problema: `.entity()` força uma estrutura rígida mesmo quando inadequado, enquanto um chatbot precisa de respostas flexíveis e contextuais.
 
 ### Características:
 
