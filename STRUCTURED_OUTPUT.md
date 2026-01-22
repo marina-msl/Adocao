@@ -10,11 +10,11 @@ Ao trabalhar com Spring AI, você tem duas formas principais de receber resposta
 
 ## 🔤 Abordagem 1: Resposta como String
 
-![Código do endpoint retornando String](docs/imagens/structured-output-string-code.png)
+![Código do endpoint retornando String](docs/imagens/string-code.png)
 
-Quando fiz uma requisição como `GET /marina/assistant?question=Liste quais são os cacorros pastores alemaes`, a resposta foi:
+Quando fiz uma requisição como `GET /marina/assistant?question=Liste quais são os cachorros pastores alemaes`, a resposta foi:
 
-![Resposta da API em formato texto](docs/imagens/structured-output-string-response.png)
+![Resposta da API em formato texto](docs/imagens/string-response.png)
 
 ### Características:
 
@@ -46,7 +46,8 @@ Esse método retorna um objeto tipado, `DogAdoptionSuggestion` e não mais a Str
 
 ![Resposta da API em formato JSON](docs/imagens/structured-output-json-response.png)
 
-Assim, fiz o teste e enviei a mesma requisição e essa foi a resposta: Note que a resposta retornou um cachorro (Cooper, ID 67) mesmo para uma simples saudação. Isso acontece porque o sistema tem RAG configurado e um prompt que instrui a IA a sugerir cachorros para adoção. Combinado com o Structured Output que obriga a retornar um `DogAdoptionSuggestion`, a IA tentou "encaixar" a saudação nesse formato, buscando um cachorro no banco de dados. Este comportamento evidencia o problema: `.entity()` força uma estrutura rígida mesmo quando inadequado, enquanto um chatbot precisa de respostas flexíveis e contextuais.
+Assim, fiz o teste e enviei a mesma requisição e essa foi a resposta: Note que a resposta retornou um cachorro (Bailey, ID 5). Se olharmos no banco, Bailey não é um Pastor Alemão, e tem vários outros que são. Isso acontece porque o sistema tem RAG configurado e um prompt que instrui a IA a sugerir cachorros para adoção,
+porém a modelagem do banco não deixa explícitaa informação da raça, que está embutida na coluna 'description', mas isso vai ser papo para outra hora. O ponto importante aqui, é o tipo de retorno, ao utilizar o '.entity', a IA tenta encaixar  a pergunta em um objeto tipado, selecionando um cachorro do banco para preencher a estrutura definida. Esse comportamento deixa claro como priorizar um objeto tipado deixa um formato rígido, enquanto respostas em String permitem saídas mais flexíveis e contextuais, mais adequadas para chatbots.
 
 ### Características:
 
