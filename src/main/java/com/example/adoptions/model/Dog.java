@@ -10,7 +10,6 @@ public class Dog {
     @Id
     private int id;
     private String name;
-    private String breed;
     private String description;
     
 }
