@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.adoptions.model.DogAdoptionSuggestion;
 import com.example.adoptions.repository.DogRepository;
+import com.example.adoptions.service.DogAdoptionsScheduler;
 
 @Controller
 @ResponseBody
@@ -28,6 +29,7 @@ public class AdoptionsController {
                         ChatClient.Builder ai,
                         DogRepository repository,
                         VectorStore vectorStore) {
+                        //DogAdoptionsScheduler scheduler) {
 
         var count = db
                 .sql("select count(*) from vector_store")
@@ -44,30 +46,40 @@ public class AdoptionsController {
         }
 
         var system = """
-                        You are an AI powered assistant to help people adopt a dog from the 
-                        adoption agency named Pooch Palace with locations in Rio de Janeiro, 
-                        Mexico City, Seoul, Tokyo, Singapore, New York City, Amsterdam, Paris, 
-                        Mumbai, New Delhi, Barcelona, London, and San Francisco. 
-                        Information about the dogs available will be presented below. 
-                        If there is no information, then return a polite response suggesting 
-                        we don't have any dogs available.
+                   Você é um assistente com inteligência artificial criado para ajudar pessoas a adotar 
+                   um cachorro da agência de adoção chamada Pooch Palace, que possui unidades no 
+                   Rio de Janeiro, Cidade do México, Seul, Tóquio, Singapura, Nova York, Amsterdã, Paris, 
+                   Mumbai, Nova Délhi, Barcelona, Londres e São Francisco.
+                As informações sobre os cães disponíveis serão apresentadas abaixo.
+                  Caso não haja informações, retorne uma resposta educada informando que não há 
+                  cães disponíveis no momento.
                 """;
         this.ai = ai
+                .defaultSystem(system)
+                //.defaultTools(scheduler)
                 .defaultAdvisors(
                         promptAdvisor,
                         QuestionAnswerAdvisor.builder(vectorStore).build())
                         .build();
     }
 
-    @GetMapping("/{user}/assistant")
-    DogAdoptionSuggestion inquire(@PathVariable String user, @RequestParam String question) {
+  @GetMapping("/{user}/assistant")
+   String inquire(@PathVariable String user, @RequestParam String question) {
         
-            return  ai
+            long start = System.currentTimeMillis();
+
+            String response =  ai
                     .prompt()
                     .user(question)
                     .advisors(a -> a.param(ChatMemory.CONVERSATION_ID, user))
                     .call()
-                    .entity(DogAdoptionSuggestion.class);
-    }
+                    .content();
+
+                long end = System.currentTimeMillis();
+                System.out.println("Response time: " + (end - start) + " ms");
+
+                return response;
+   }
 
 }
+ 
