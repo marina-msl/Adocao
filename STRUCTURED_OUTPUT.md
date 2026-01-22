@@ -47,7 +47,7 @@ Esse método retorna um objeto tipado, `DogAdoptionSuggestion` e não mais a Str
 ![Resposta da API em formato JSON](docs/imagens/structured-output-json-response.png)
 
 Assim, fiz o teste e enviei a mesma requisição e essa foi a resposta: Note que a resposta retornou um cachorro (Bailey, ID 5). Se olharmos no banco, Bailey não é um Pastor Alemão, e tem vários outros que são. Isso acontece porque o sistema tem RAG configurado e um prompt que instrui a IA a sugerir cachorros para adoção,
-porém a modelagem do banco não deixa explícitaa informação da raça, que está embutida na coluna 'description', mas isso vai ser papo para outra hora. O ponto importante aqui, é o tipo de retorno, ao utilizar o '.entity', a IA tenta encaixar  a pergunta em um objeto tipado, selecionando um cachorro do banco para preencher a estrutura definida. Esse comportamento deixa claro como priorizar um objeto tipado deixa um formato rígido, enquanto respostas em String permitem saídas mais flexíveis e contextuais, mais adequadas para chatbots.
+porém a modelagem do banco não deixa explícita a informação da raça, que está embutida na coluna 'description', mas isso vai ser papo para outra hora. O ponto importante aqui, é o tipo de retorno, ao utilizar o '.entity', a IA tenta encaixar a resposta em um objeto tipado, selecionando um cachorro do banco para preencher a estrutura definida. Esse comportamento deixa claro como priorizar um objeto tipado deixa um formato rígido, enquanto respostas em String permitem saídas mais flexíveis e contextuais, mais adequadas para chatbots.
 
 ### Características:
 
