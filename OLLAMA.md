@@ -73,11 +73,6 @@ Abre chat interativo. `Ctrl+D` para sair.
 
 ## 🛠️ Comandos úteis para desenvolvimento
 
-### Ver modelos disponíveis online
-```bash
-ollama search llama
-```
-
 ### Ver uso de recursos
 ```bash
 ollama ps
@@ -135,6 +130,8 @@ ollama pull llama3.2:1b
 ---
 
 *Última atualização: Janeiro 2025*
+
+
 
 
 
