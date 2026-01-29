@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.adoptions.repository.DogRepository;
+import com.example.adoptions.service.DogAdoptionCompability;
 import com.example.adoptions.service.DogAdoptionsScheduler;
 
 @RestController
@@ -26,7 +27,8 @@ public class AdoptionsController {
                          ChatClient.Builder ai,
                          DogRepository repository,
                          VectorStore vectorStore,
-                         DogAdoptionsScheduler scheduler) {
+                         DogAdoptionsScheduler scheduler,
+                         DogAdoptionCompability compatibility) {
 
 
          var count = db
@@ -55,6 +57,7 @@ public class AdoptionsController {
         this.ai = ai
                  .defaultSystem(system)
                  .defaultTools(scheduler)
+                 .defaultTools(compatibility)
                  .defaultAdvisors(
                          promptAdvisor,
                         QuestionAnswerAdvisor.builder(vectorStore).build())
